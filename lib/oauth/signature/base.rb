@@ -51,6 +51,8 @@ module OAuth::Signature
     end
 
     def ==(cmp_signature)
+      Rails.logger.info "------------------- request.signature_base_string : #{request.signature_base_string}"
+      Rails.logger.info "------------------- secret : #{secret}"
       Base64.decode64(signature) == Base64.decode64(cmp_signature)
     end
 
